@@ -1,13 +1,37 @@
 import time
 import random
 import string
-namenum = 1
+from blessed import Terminal
+
+class Speciesobj:
+    x = 0
+    z = 0
+    right = 0
+    left = 0
+    up = 0
+    down = 0
+    ranletter = "+"
+    def __init__(self, x, z, right, left, up, down, ranletter):
+        self.x = x
+        self.z = z
+        self.right = right
+        self.left = left
+        self.up = up
+        self.down = down
+        self.ranletter = ranletter
+
+
+term = Terminal()
+
+
 species = list()
-for i in range(100000):
-    str(namenum)
-    species.append(namenum)
-    int(namenum)
-    namenum += 1
+
+floorcount = 22
+floors = ["██████████████████████████████████████████████████████████████████████████"] * floorcount
+
+for namenum in range(100000):
+    species.append(str(namenum+1))
+
 # 224 species so far, 160 work
 specie = ['Lorbon', 'Zenith', 'Haeron', 'Kakrei', 'Libbin', 'Isirant', 'Mexeleon', 'Qhelluleon', 'Qharitan', 'Yesaiinae', 'Eshalian', 'Zathulae', 'Gruducean', 'Stirrenian', 'Qatheamon', 'Essego', 'Fardenh', 'Gejihuh', 'Vwydiher', 'Fudbble', 'Fygnif', 'Scrigduf', 'Sogoul', 'Efrilig', 'Qwertyt', 'Uiopil', 'Asrid', 'Faghij', 'Lyzxc', 'Vubnmi', 'qscwdv', 'potyu', 'Borbon', 'Benith', 'Baeron', 'Bakrei', 'Bibbin', 'Bsirant', 'Bexeleon', 'Bhelluleon', 'Bharitan', 'Besaiinae', 'Bshalian', 'Bathulae', 'Bruducean', 'Btirrenian', 'Batheamon', 'Bssego', 'Bdh', 'Bfhuh', 'Bdhd', 'Bdbb', 'Bgnf', 'Bgdf', 'Bg', 'Bfg', 'Bwerty', 'Biop', 'Bsd', 'Bghjk', 'Bzxc', 'Bbnm', 'Bscwdv', 'Botyu','borbon', 'benith', 'baeron', 'bakrei', 'bibbin', 'bsirant', 'bexeleon', 'bhelluleon', 'bharitan', 'besaiinae', 'bshalian', 'bathulae', 'bruducean', 'btirrenian', 'batheamon', 'bssego', 'bdh', 'bfhuh', 'bdhd', 'bdbb', 'bgnf', 'bgdf', 'bg', 'bfg', 'bwerty', 'biop', 'bsd', 'bghjk', 'bzxc', 'bbnm', 'bscwdv', 'botyu','97', '98', '99', '100', '101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120', '121', '122', '123', '124', '125', '126', '127', '128','129', '130', '131', '132', '133', '134', '135', '136', '137', '138', '139', '140', '141', '142', '143', '144', '145', '146', '147', '148', '149', '150', '151', '152', '153', '154', '155', '156', '157', '158', '159', '160','Lorbon', 'Zenith', 'Haeron', 'Kakrei', 'Libbin', 'Isirant', 'Mexeleon', 'Qhelluleon', 'Qharitan', 'Yesaiinae', 'Eshalian', 'Zathulae', 'Gruducean', 'Stirrenian', 'Qatheamon', 'Essego', 'fdh', 'gfhuh', 'fdhd', 'fdbb', 'fgnf', 'sgdf', 'sg', 'efg', 'qwerty', 'uiop', 'asd', 'fghjk', 'lzxc', 'vbnm', 'qscwdv', 'potyu','Lorbon', 'Zenith', 'Haeron', 'Kakrei', 'Libbin', 'Isirant', 'Mexeleon', 'Qhelluleon', 'Qharitan', 'Yesaiinae', 'Eshalian', 'Zathulae', 'Gruducean', 'Stirrenian', 'Qatheamon', 'Essego', 'fdh', 'gfhuh', 'fdhd', 'fdbb', 'fgnf', 'sgdf', 'sg', 'efg', 'qwerty', 'uiop', 'asd', 'fghjk', 'lzxc', 'vbnm', 'qscwdv', 'potyu']
 alive = dict()
@@ -31,6 +55,7 @@ for key in species[0:howmanyspecies]:
         chosengenes.append(whichgenes)
         alive[key] = chosengenes
 
+
 #print(alive)
 #print(allchosengenes)
 u = 0
@@ -40,212 +65,137 @@ def alivespecies():
         print('Species:', key, '| Gene Amount:', allchosengenes[u], '| Genes:', alive[key])
         u += 1
 alivespecies()
-floor21 = ['█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█']
-floor20 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor19 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor18 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor17 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor16 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor15 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor14 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor13 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor12 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor11 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor10 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor9 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor8 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor7 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor6 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor5 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor4 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor3 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor2 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor1 = ['█',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','=','=',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','█']
-floor0 = ['█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█']
-print('Floor 0 length: ',len(floor0))
-print('Floor 21 length: ',len(floor21))
-area = (
-    floor4,
-    floor3,
-    floor2,
-    floor1,
-    floor0
-    )
-print(floor4, '\n', floor3, '\n', floor2, '\n', floor1, '\n', floor0)
+floors[21] = "██████████████████████████████████████████████████████████████████████████"
+floors[20] = "█                                              ==                        █"
+floors[19] = "█                                              ==                        █"
+floors[18] = "█                                              ==                        █"
+floors[17] = "█                                              ==                        █"
+floors[16] = "█                                              ==                        █"
+floors[15] = "█                                              ==                        █"
+floors[14] = "█                                              ==                        █"
+floors[13] = "█                                              ==                        █"
+floors[12] = "█                                              ==                        █"
+floors[11] = "█                                              ==                        █"
+floors[10] = "█                                              ==                        █"
+floors[9]  = "█                                              ==                        █"
+floors[8]  = "█                                              ==                        █"
+floors[7]  = "█                                              ==                        █"
+floors[6]  = "█                                              ==                        █"
+floors[5]  = "█                                              ==                        █"
+floors[4]  = "█                                              ==                        █"
+floors[3]  = "█                                              ==                        █"
+floors[2]  = "█                                              ==                        █"
+floors[1]  = "█                                              ==                        █"
+floors[0]  = "██████████████████████████████████████████████████████████████████████████"
+print('Floor 0 length: ',len(floors[0]))
+print('Floor 21 length: ',len(floors[21]))
+for index, floor in enumerate(reversed(floors)):
+    print(floor)
+
+area2n = ["X"] * floorcount
+for index, floor in enumerate(reversed(floors)):
+    area2n[index] = floors[index][:]
+
+
+#print(floors[4], '\n', floors[3], '\n', floors[2], '\n', floors[1], '\n', floors[0])
 Lorbon = random.choice(string.ascii_letters)
 
 walk1 = 0
 walk2 = 74
 walk3 = 22
 walk4 = 96
-print(len(floor0), len(floor1))
+print(len(floors[0]), len(floors[1]))
 error = 0
 error2 = 0
 error3 = 0
 speciesvals = dict()
 # List: x, z, error1, error2, error3, character.
+
 def spoon():
     global species, speciesvals
     for key in species:
         xval = random.randint(1, 72)
         zval = random.randint(1, 20)
-        try:
-            speciesvals[key] = [xval, zval, 0, 0, 0, random. choice(string. ascii_letters), 0]
-        except:
-            print('OW')
+        ranletter = random.choice(string.ascii_letters)
+       # try:
+            #speciesvals[key] = [xval, zval, 0, 0, 0, random.choice(string. ascii_letters), 0]
+        speciesvals[key] = Speciesobj(xval, zval, 0, 0, 0, 0, ranletter)
+       # except:
+        #    print('OW')
     #random.choice(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't','u', 'v', 'w', 'x', 'y', 'z'], ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])]
     #speciesvals = {'Lorbon': [random.randint(1, 32), random.randint(0, 9), 0, 0, 0, random.choice(string.ascii_letters)], 'Zenith': [random.randint(1, 32), random.randint(1, 32), 0, 0, 0, random.choice(string.ascii_letters)], 'Haeron': [random.randint(1, 32), random.randint(0, 9), 0, 0, 0, random.choice(string.ascii_letters)], 'Kakrei': [random.randint(1, 32), random.randint(0, 9), 0, 0, 0, random.choice(string.ascii_letters)]}
 spoon()
 walk1 = 0
 walk2 = 74
 def step():
-    global walk1, walk2, floor0, Lorbon, walk3, walk4, alive, error, walk01, error2, error3, speciesvals
+    global area2n, walk1, walk2, floors, Lorbon, walk3, walk4, alive, error, walk01, error2, error3, speciesvals, floorcount
     delimiter = ''
-    floor0n = floor0[0:81]
-    floor0nn = delimiter.join(floor0n)
-    floor1n = floor1[0:81]
-    floor1nn = delimiter.join(floor1n)
-    floor2n = floor2[0:81]
-    floor2nn = delimiter.join(floor2n)
-    floor3n = floor3[0:81]
-    floor3nn = delimiter.join(floor3n)
-    floor4n = floor4[0:81]
-    floor4nn = delimiter.join(floor4n)
-    floor5n = floor5[0:81]
-    floor5nn = delimiter.join(floor5n)
-    floor6n = floor6[0:81]
-    floor6nn = delimiter.join(floor6n)
-    floor7n = floor7[0:81]
-    floor7nn = delimiter.join(floor7n)
-    floor8n = floor8[0:81]
-    floor8nn = delimiter.join(floor8n)
-    floor9n = floor9[0:81]
-    floor9nn = delimiter.join(floor9n)
-    floor10n = floor10[0:81]
-    floor10nn = delimiter.join(floor10n)
-    floor11n = floor11[0:81]
-    floor11nn = delimiter.join(floor11n)
-    floor12n = floor12[0:81]
-    floor12nn = delimiter.join(floor12n)
-    floor13n = floor13[0:81]
-    floor13nn = delimiter.join(floor13n)
-    floor14n = floor14[0:81]
-    floor14nn = delimiter.join(floor14n)
-    floor15n = floor15[0:81]
-    floor15nn = delimiter.join(floor15n)
-    floor16n = floor16[0:81]
-    floor16nn = delimiter.join(floor16n)
-    floor17n = floor17[0:81]
-    floor17nn = delimiter.join(floor17n)
-    floor18n = floor18[0:81]
-    floor18nn = delimiter.join(floor18n)
-    floor19n = floor19[0:81]
-    floor19nn = delimiter.join(floor19n)
-    floor20n = floor20[0:81]
-    floor20nn = delimiter.join(floor20n)
-    floor21n = floor21[0:81]
-    floor21nn = delimiter.join(floor21n)
+    print(f"{term.home}{term.white_on_black}{term.clear}")
+    # copy floors to area2 and area2n
+
+   
     #alivespecies()
-    area2 = [
-        floor0n,
-        floor1n,
-        floor2n,
-        floor3n,
-        floor4n,
-        floor5n,
-        floor6n,
-        floor7n,
-        floor8n,
-        floor9n,
-        floor10n,
-        floor11n,
-        floor12n,
-        floor13n,
-        floor14n,
-        floor15n,
-        floor16n,
-        floor17n,
-        floor18n,
-        floor19n,
-        floor20n,
-        floor21n
-        ]
-    area2n = [
-        floor0nn,
-        floor1nn,
-        floor2nn,
-        floor3nn,
-        floor4nn,
-        floor5nn,
-        floor6nn,
-        floor7nn,
-        floor8nn,
-        floor9nn,
-        floor10nn,
-        floor11nn,
-        floor12nn,
-        floor13nn,
-        floor14nn,
-        floor15nn,
-        floor16nn,
-        floor17nn,
-        floor18nn,
-        floor19nn,
-        floor20nn,
-        floor21nn
-        ]
+  
     for key in speciesvals:
         geneval = speciesvals[key]
         if key in alive:
             thegene = alive[key]
             #check if there is no error
-            r = area2[geneval[1]]
-            if r[geneval[0] + 1] == ' ' or r[geneval[0] + 1] == '=':
-                geneval[2] = 0
-            if r[geneval[0] - 1] == ' ' or r[geneval[0] - 1] == '=':
-                geneval[3] = 0
-            if area2[geneval[1] + 1][geneval[0]] == ' ' or area2[geneval[1] + 1][geneval[0]] == '=':
-                geneval[4] = 0
-            if area2[geneval[1] - 1][geneval[0]] == ' ' or area2[geneval[1] - 1][geneval[0]] == '=':
-                geneval[6] = 0
+            #get the floor they are on
+            r = area2n[geneval.z]
+
+            # clear out position they are at
+            area2n[geneval.z] = area2n[geneval.z][:geneval.x] + " " + area2n[geneval.z][geneval.x + 1:]
+            # check for invalid moving, return to zero if invalid
+            if r[geneval.x + 1] == ' ' or r[geneval.x + 1] == '=':
+                geneval.right = 0
+            if r[geneval.x - 1] == ' ' or r[geneval.x - 1] == '=':
+                geneval.left = 0
+            if area2n[geneval.z + 1][geneval.x] == ' ' or area2n[geneval.z + 1][geneval.x] == '=':
+                geneval.up = 0
+            if area2n[geneval.z - 1][geneval.x] == ' ' or area2n[geneval.z - 1][geneval.x] == '=':
+                geneval.down = 0
             
             #check if there is an error
-            r = area2[geneval[1]]
-            if r[geneval[0] + 1] != ' ' and r[geneval[0] + 1] != '=':
-                geneval[2] = 1
-            if r[geneval[0] - 1] != ' ' and r[geneval[0] - 1] != '=':
-                geneval[3] = 1
-            if area2[geneval[1] + 1][geneval[0]] != ' ' and area2[geneval[1] + 1][geneval[0]] != '=':
-                geneval[4] = 1
-            if area2[geneval[1] - 1][geneval[0]] != ' ' and area2[geneval[1] - 1][geneval[0]] != '=':
-                geneval[6] = 1
+            r = area2n[geneval.z]
+            if r[geneval.x + 1] != ' ' and r[geneval.x + 1] != '=':
+                geneval.right = 1
+            if r[geneval.x - 1] != ' ' and r[geneval.x - 1] != '=':
+                geneval.left = 1
+            if area2n[geneval.z + 1][geneval.x] != ' ' and area2n[geneval.z + 1][geneval.x] != '=':
+                geneval.up = 1
+            if area2n[geneval.z - 1][geneval.x] != ' ' and area2n[geneval.z - 1][geneval.x] != '=':
+                geneval.down = 1
             #GENES AND MOVEMENT
-            if thegene[0] == 1 and geneval[2] == 0:
-                if geneval[0] < 76 and geneval[2] == 0:
-                    geneval[0] += 1
-            if thegene[0] == 2 and geneval[3] == 0:
-                if geneval[0] > 0 and geneval[3] == 0:
-                    geneval[0] -= 1
-            if thegene[0] == 3 and geneval[4] == 0:
-                if geneval[1] < 21 and geneval[4] == 0:
-                    geneval[1] += 1
-            if thegene[0] == 4 and geneval[4] == 0:
-                if geneval[1] > 0 and geneval[6] == 0:
-                    geneval[1] -= 1
+            if thegene[0] == 1 and geneval.right == 0:
+                if geneval.x < 76 and geneval.right == 0:
+                    geneval.x += 1
+            if thegene[0] == 2 and geneval.left == 0:
+                if geneval.x > 0 and geneval.left == 0:
+                    geneval.x -= 1
+            if thegene[0] == 3 and geneval.up == 0:
+                if geneval.z < 21 and geneval.up == 0:
+                    geneval.z += 1
+            if thegene[0] == 4 and geneval.up == 0:
+                if geneval.z > 0 and geneval.down == 0:
+                    geneval.z -= 1
             #map updating
-            r = area2[geneval[1]]
-            r2 = area2n[geneval[1]]
-            r[geneval[0]] = geneval[5]
-            area2n[geneval[1]] = delimiter.join(r)
+            #r = area2[geneval.z]
+            #r2 = area2n[geneval.z]
+            #r[geneval.x] = geneval.ranletter
+            #area2n[geneval.z] = delimiter.join(r)
+
+            #print species to map at their new assigned position
+            area2n[geneval.z] = area2n[geneval.z][:geneval.x] + geneval.ranletter + area2n[geneval.z][geneval.x + 1:]
     remainder = 0
     if test == 's':
         if walk3 > 19:
             walk3 -= 1
     if test == 'w':
-        if walk3 < 22:
+        if walk3 < floorcount:
             walk3 += 1
     floornum = 21
-    for i in range(19): #range is 1 more than max floornum
+    for i in range(floorcount): #range is 1 more than max floornum
         if walk3 > floornum:
             print(area2n[floornum][walk1:walk2])
         else:
@@ -262,6 +212,7 @@ while True:
     # time.sleep(2)
     test = input("Test: ")
     #try:
+    print(f"{term.home}{term.white_on_black}{term.clear}")
     # so.system('clear')
     step()
     #except:
